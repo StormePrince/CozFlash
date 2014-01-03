@@ -1,12 +1,5 @@
 #pragma once
-#include "Timer.h"
-#include "SDL.h"
-#include <fstream>
-#include <iostream>
-#include <string>
-#include "SDL_image.h"
-#include "SDL_ttf.h"
-#include "SDL_mixer.h"
+#include "base.h"
 //The timer
 class Timer
 {

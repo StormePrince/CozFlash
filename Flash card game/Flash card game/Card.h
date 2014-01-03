@@ -1,9 +1,6 @@
 #pragma once
-#include <fstream>
-#include <iostream>
-#include <string>
+#include "base.h"
 
-using namespace std;
 
 
 class Card

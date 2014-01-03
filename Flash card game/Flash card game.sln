@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flash card game", "Flash ca
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|Win32 = Debug|Win32
+		Release|ARM = Release|ARM
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Debug|ARM.Build.0 = Debug|ARM
 		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Debug|Win32.ActiveCfg = Debug|Win32
 		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Debug|Win32.Build.0 = Debug|Win32
+		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Release|ARM.ActiveCfg = Release|ARM
+		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Release|ARM.Build.0 = Release|ARM
 		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Release|Win32.ActiveCfg = Release|Win32
 		{F357C242-58AE-4C8D-9281-804F0D7FB9BC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection

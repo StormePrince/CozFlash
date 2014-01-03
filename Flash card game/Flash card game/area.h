@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
+#include "base.h"
 #include "Card.h"
 
 using namespace std;

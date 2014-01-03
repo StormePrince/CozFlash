@@ -1,7 +1,5 @@
+#pragma once
 #include "Card.h"
-#include <string>
-
-using namespace std;
 
 Card::Card(int Id, int Type, wstring Front, wstring Back, wstring Tip, wstring Info, wstring Options[])
 {
