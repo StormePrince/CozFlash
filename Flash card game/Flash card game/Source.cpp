@@ -65,9 +65,9 @@ int main(int argc, char* args[])
 	Controller input = Controller(mainEvent);
 
 	SDL_Texture* testb = NULL;
-	testb = LOAD(renderer, "Data/Character/foo.bmp");
+	testb = LOAD(renderer, "Data/Character/foo.png");
 
-	Sprite* floozy = new Sprite(&pen,16,112,7,0);
+	Sprite* floozy = new Sprite(&pen,16,16,7,0);
 
 	floozy->load(testb);
 	floozy->setPosx(22);
@@ -77,11 +77,12 @@ int main(int argc, char* args[])
 	{
 		SDL_PollEvent(mainEvent);
 		SDL_RenderClear(renderer);
-
-		floozy->showFrame(2);
-		pen.drawText("hey", "Data/Fonts/ming.ttf", 24, WINDOW_WIDTH / 2, 5, 200, 200, 200);
-
+		input.update();
+		floozy->setPosx(input.getAX());
+		floozy->setPosy(input.getAY());
+		floozy->animateCenter(1,6,64,64);
 		SDL_RenderPresent(renderer);
+		SDL_Delay(25);
 	}
 	
 	endGame();
