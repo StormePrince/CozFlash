@@ -8,9 +8,12 @@ public:
 	Simplefuncs(SDL_Renderer* render);
 	~Simplefuncs();
 
-	SDL_Texture* Load(char* File);
-	bool Draw(SDL_Texture* src, int x, int y, int xd, int yd, int width, int height, int widthd, int heightd);
-	bool Drawtext(string text, int x, int y, int size, int fR, int fG, int fB, int bR, int bG, int bB);
+
+	bool draw(SDL_Texture* src, int x, int y, int xd, int yd, int width, int height, int widthd, int heightd);
+	bool draw(SDL_Texture* src, int x, int y, int xd, int yd, int width, int height);
+	bool drawText(char* string, char* fontfile,int size, int x, int y, int fR, int fG, int fB);
+	bool drawText(Uint16* string, char* fontfile,int size, int x, int y, int fR, int fG, int fB);
+	SDL_Renderer* getRend();
 private:
 	SDL_Renderer* rend;
 

@@ -6,33 +6,43 @@ class Sprite
 public:
 	Sprite();
 	~Sprite();
-	Sprite(SDL_Renderer* render, int h, int w, int l);
+	Sprite(Simplefuncs* tool, int h, int w, int col,int row);
 
-	bool Load(char* File);
+	bool load(char* File);
+	bool load(SDL_Texture* texture);
 
 	void nextFrame();
 	void test();
-
-	void setframe(int f)
-		{
-		frame = f;
-		}
-	void setposx(int x);
-	void setposy(int y);
-	int getframe();
-	void Draw();
-	void Draw(int w,int h);
+	void setFrame(int f);
+	void setPosx(int x);
+	void setPosy(int y);
+	void addX(int x);
+	void addY(int y);
+	void subX(int x);
+	void subY(int y);
+	int getFrame();
+	int getPosx();
+	int getPosy();
+	int getRow();
+	int getCol();
+	void show();
+	void show(int w, int h);
+	void showFrame(int singleframe, int w, int h);
+	void showFrame(int singleframe);
+	void animate(int start, int finish);
+	void animate(int start, int finish, int w, int h);
 private:
-	Simplefuncs tool;
+	Simplefuncs* pen = NULL;
 	SDL_Texture* image = NULL;
+	int columns;
+	int rows;
 	int height;
 	int width;
-	int framerow;
-	int framecol;
 	int frame;
-	int length;
 	int posx;
 	int posy;
+	bool animating;
+	int temp;
 };
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "Card.h"
 
-Card::Card(int Id, int Type, wstring Front, wstring Back, wstring Tip, wstring Info, wstring Options[])
+Card::Card(int Id, int Type, int nop, wstring Front, wstring Back, wstring Tip, wstring Info, wstring Options[])
 {
 	cardId = Id;
 	type = Type;
@@ -9,9 +9,10 @@ Card::Card(int Id, int Type, wstring Front, wstring Back, wstring Tip, wstring I
 	back = Back;
 	tip = Tip;
 	info = Info;
-	for (int c = 0; c < 4;c++)
+	numberOfOptions = nop;
+	for (int c = 0; c < numberOfOptions;c++)
 		{
-		options[c] = Options[c];
+		Options[c] = Options[c];
 		}
 }
 
@@ -39,6 +40,31 @@ wstring Card::getTip()
 {
 	return tip;
 }
+
+void Card::setFront(wstring change){ front = change; }
+
+void Card::setBack(wstring change){ back = change; }
+
+void Card::setTip(wstring change){ tip = change; }
+
+void Card::setInfo(wstring change) { info = change; }
+
+void Card::setOptions(wstring change[])
+{
+	for (int c = 0; c < numberOfOptions; c++)
+	{
+		options[c] = change[c];
+	}
+}
+
+void Card::setId(int change){ cardId = change; }
+
+void Card::setType(int change){ type = change; }
+
+void Card::setNumberOfOptions(int change){ numberOfOptions = change; }
+
+
+
 
 bool Card::checkAnswer(wstring answer)
 {
