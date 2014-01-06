@@ -1,16 +1,17 @@
 #pragma once
 #include "box.h"
 #include "sprite.h"
-class button
+class Button
 {
 public:
-	button();
-	button(int w,int h,Sprite* background,string text);
-	~button();
+	Button();
+	Button(int w,int h,Sprite back,string text);
+	~Button();
+	void changeBox(int w, int h);
 	Box collisionBox;
-	int w;
-	int h;
+	int width;
+	int height;
 	Sprite background;
-	string buttonText;
+	const char* buttonText;
 };
 

@@ -22,7 +22,7 @@ bool Box::compareBoxHor(Box b)
 {
 }
 
-bool Box::compareBoxHor(Box b)
+bool Box::compareBoxVer(Box b)
 {
 }
 
