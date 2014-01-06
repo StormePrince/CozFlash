@@ -129,6 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="area.h" />
+    <ClInclude Include="box.h" />
+    <ClInclude Include="button.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Defines.h" />
@@ -139,6 +141,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="area.cpp" />
+    <ClCompile Include="box.cpp" />
+    <ClCompile Include="button.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="simplefuncs.cpp" />

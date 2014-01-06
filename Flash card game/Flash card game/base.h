@@ -9,4 +9,5 @@
 #include <SDL_mixer.h>
 #include <SDL_TTF.h>
 #include "Defines.h"
+#include "box.h"
 using namespace std;
