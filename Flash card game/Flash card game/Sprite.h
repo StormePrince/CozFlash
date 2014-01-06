@@ -25,6 +25,12 @@ public:
 	int getPosy();
 	int getRow();
 	int getCol();
+	void showCenter();
+	void showCenter(int w, int h);
+	void showFrameCenter(int singleframe, int w, int h);
+	void showFrameCenter(int singleframe);
+	void animateCenter(int start, int finish);
+	void animateCenter(int start, int finish, int w, int h);
 	void show();
 	void show(int w, int h);
 	void showFrame(int singleframe, int w, int h);
@@ -39,6 +45,8 @@ private:
 	int height;
 	int width;
 	int frame;
+	int centerPosx;
+	int centerPosy;
 	int posx;
 	int posy;
 	bool animating;

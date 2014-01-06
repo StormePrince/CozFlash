@@ -11,6 +11,8 @@ Sprite::Sprite(Simplefuncs* tool, int h, int w, int col, int row)
 	rows = row;
 	posx = 0;
 	posy = 0;
+	centerPosx = 0;
+	centerPosy = 0;
 	temp = 0;
 	animating = false;
 	image = NULL;
@@ -52,11 +54,13 @@ bool Sprite::load(SDL_Texture* spritesheet)
 void Sprite::setPosx(int x)
 {
 	posx = x;
+	centerPosx = x+width/2;
 }
 
 void Sprite::setPosy(int y)
 {
 	posy = y;
+	centerPosy = y + width/2;
 }
 
 void Sprite::show() 
@@ -128,6 +132,77 @@ void Sprite::animate(int start, int finish, int w, int h)
 	}
 
 }
+
+void Sprite::showCenter()
+{
+	int framerow = frame / columns;
+	int framecol = frame % columns;
+	pen->draw(image, framecol*width, framerow*height, posx - width / 2, posy - height/2, width, height, width, height);
+}
+
+void Sprite::showCenter(int w, int h)
+{
+	int framerow = frame / columns;
+	int framecol = frame % columns;
+	pen->draw(image, framecol*width, framerow*height, posx-w/2, posy-h/2, width, height, w, h);
+}
+
+void Sprite::showFrameCenter(int singleframe)
+{
+	temp = frame;
+	frame = singleframe;
+	showCenter();
+	frame = temp;
+}
+
+void Sprite::showFrameCenter(int singleframe, int w, int h)
+{
+	temp = frame;
+	frame = singleframe;
+	showCenter(w, h);
+	frame = temp;
+}
+
+
+void Sprite::animateCenter(int start, int finish)
+{
+	if (animating == false)
+	{
+		int temp = frame;
+		animating = true;
+		setFrame(start);
+	}
+	showCenter();
+	nextFrame();
+
+	if (frame == finish)
+	{
+		frame = temp;
+		animating = false;
+	}
+
+}
+
+void Sprite::animateCenter(int start, int finish, int w, int h)
+{
+	if (animating == false)
+	{
+		int temp = frame;
+		animating = true;
+		frame = start;
+	}
+
+	showCenter(w, h);
+	frame++;
+
+	if (frame == finish)
+	{
+		frame = temp;
+		animating = false;
+	}
+
+}
+
 
 
 void Sprite::setFrame(int f)
