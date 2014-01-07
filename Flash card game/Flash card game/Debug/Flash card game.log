@@ -1,16 +1,27 @@
-﻿Build started 1/6/2014 6:44:11 PM.
+﻿Build started 1/6/2014 10:31:52 PM.
      1>Project "C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Flash card game\Flash card game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt box.cpp button.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt button.cpp simplefuncs.cpp
+         simplefuncs.cpp
+     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\simplefuncs.cpp(158): warning C4101: 'w' : unreferenced local variable
+     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\simplefuncs.cpp(158): warning C4101: 'h' : unreferenced local variable
+     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\simplefuncs.cpp(183): warning C4101: 'w' : unreferenced local variable
+     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\simplefuncs.cpp(183): warning C4101: 'h' : unreferenced local variable
          button.cpp
-     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\button.cpp(5): error C2511: 'button::button(int,int,Sprite,std::string)' : overloaded member function not found in 'button'
-                 c:\users\storme\documents\github\cozflash\flash card game\flash card game\button.h(5) : see declaration of 'button'
-         box.cpp
-     1>c:\users\storme\documents\github\cozflash\flash card game\flash card game\box.cpp(26): error C2084: function 'bool Box::compareBoxHor(Box)' already has a body
-                 c:\users\storme\documents\github\cozflash\flash card game\flash card game\box.h(10) : see previous definition of 'compareBoxHor'
          Generating Code...
-     1>Done Building Project "C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Flash card game\Flash card game.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Debug\Flash card game.exe" /INCREMENTAL /NOLOGO SDL2_ttf.lib SDL2_mixer.lib SDL2_image.lib SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Debug\Flash card game.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Debug\Flash card game.lib" /MACHINE:X86 Debug\area.obj
+         Debug\box.obj
+         Debug\button.obj
+         Debug\Card.obj
+         Debug\Controller.obj
+         Debug\simplefuncs.obj
+         Debug\Source.obj
+         Debug\Sprite.obj
+         Debug\Timer.obj
+         Flash card game.vcxproj -> C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Debug\Flash card game.exe
+     1>Done Building Project "C:\Users\Storme\Documents\GitHub\CozFlash\Flash card game\Flash card game\Flash card game.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.80
+Time Elapsed 00:00:03.06
