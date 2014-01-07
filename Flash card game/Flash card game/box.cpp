@@ -20,10 +20,12 @@ Box::~Box()
 
 bool Box::compareBoxHor(Box b)
 {
+	return false;
 }
 
 bool Box::compareBoxVer(Box b)
 {
+	return true;
 }
 
 bool Box::holds(Box b)
@@ -32,4 +34,5 @@ bool Box::holds(Box b)
 	{
 		return true;
 	}
+	return false;
 }

@@ -5,13 +5,15 @@ class Button
 {
 public:
 	Button();
-	Button(int w,int h,Sprite back,string text);
+	Button(int w, int h, Sprite back, char* text);
+	Button(int w,int h,Sprite back,char* text,int i);
 	~Button();
-	void changeBox(int w, int h);
+	void changeBox(int x,int y,int w, int h);
+	bool load(char* fontFile, char* back, int size, int r, int g, int b);
 	Box collisionBox;
 	int width;
 	int height;
-	Sprite background;
-	const char* buttonText;
+	Sprite image;
+	char* buttonText;
 };
 

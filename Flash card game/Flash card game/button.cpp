@@ -1,13 +1,14 @@
 #include "button.h"
 
 
-Button::Button(int w, int h, Sprite back, string text)
+Button::Button(int w, int h, Sprite back,char* text)
 {
-	background = back;
+
+	image = back;
 	width = w;
 	height = h;
-	buttonText = text.c_str;
-	collisionBox = Box(background.getPosx, background.getPosx+width, background.getPosy, background.getPosy+height);
+	buttonText = text;
+	collisionBox = Box(image.getPosx(), image.getPosx()+width, image.getPosy(), image.getPosy()+height);
 }
 
 Button::Button()
@@ -19,7 +20,20 @@ Button::~Button()
 {
 }
 
-void Button::changeBox(int w,int h)
+void Button::changeBox(int x, int y,int w,int h)
 {
-	collisionBox = Box(background.getPosx, background.getPosx + width, background.getPosy, background.getPosy + height);
+	image.setPosx(x);
+	image.setPosy(y);
+	collisionBox = Box(image.getPosx(), image.getPosx() + width, image.getPosy(), image.getPosy() + height);
+}
+
+bool Button::load(char* fontFile, char* back, int size, int r, int g, int b)
+{
+
+	SDL_Surface* temp = image.getPen()->saveTextSolid(buttonText, fontFile, size, r, g, b);
+	SDL_Surface* temp2 = IMG_Load(back);
+	SDL_SetColorKey(temp, SDL_TRUE, SDL_MapRGB(temp->format, 0xFF, 0, 0xFF));
+	SDL_BlitSurface(temp, NULL, temp2, NULL);
+	image.load(SDL_CreateTextureFromSurface(image.getPen()->getRend(),temp));
+	return true;
 }

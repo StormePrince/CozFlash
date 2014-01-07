@@ -109,7 +109,7 @@ bool Simplefuncs::drawText(char* text, char* fontfile,int size, int x, int y,  i
 	return true;
 }
 
-bool Simplefuncs::drawText(Uint16* text, char* fontfile, int size, int x, int y, int fR, int fG, int fB)
+bool Simplefuncs::drawTextSolid(char* text, char* fontfile, int size, int x, int y, int fR, int fG, int fB)
 {
 	// Open our font and set its size to the given parameter //
 	TTF_Font* font = nullptr;
@@ -122,7 +122,7 @@ bool Simplefuncs::drawText(Uint16* text, char* fontfile, int size, int x, int y,
 	SDL_Color textColor = { fR, fG, fB };   // text color 
 	int w, h;
 	SDL_Surface *temp;
-	temp = TTF_RenderUNICODE_Blended(font, text, textColor);
+	temp = TTF_RenderUTF8_Solid(font, text, textColor);
 	SDL_Texture* message = SDL_CreateTextureFromSurface(rend, temp);
 	SDL_QueryTexture(message, NULL, NULL, &w, &h);
 
@@ -140,4 +140,55 @@ bool Simplefuncs::drawText(Uint16* text, char* fontfile, int size, int x, int y,
 	TTF_CloseFont(font);
 
 	return true;
+}
+
+
+
+SDL_Surface* Simplefuncs::saveText(char* text, char* fontfile, int size, int fR, int fG, int fB)
+{
+	// Open our font and set its size to the given parameter //
+	TTF_Font* font = nullptr;
+	font = TTF_OpenFont(fontfile, size);
+	if (font == nullptr){
+		throw std::runtime_error(TTF_GetError());
+		return false;
+	}
+
+	SDL_Color textColor = { fR, fG, fB };   // text color 
+	int w, h;
+	SDL_Surface *temp;
+	temp = TTF_RenderText_Blended(font, text, textColor);
+	return temp;
+	// Always free memory! //
+	SDL_FreeSurface(temp);
+
+	// Close the font. //
+	TTF_CloseFont(font);
+
+	
+}
+
+SDL_Surface* Simplefuncs::saveTextSolid(char* text, char* fontfile, int size, int fR, int fG, int fB)
+{
+	// Open our font and set its size to the given parameter //
+	TTF_Font* font = nullptr;
+	font = TTF_OpenFont(fontfile, size);
+	if (font == nullptr){
+		throw std::runtime_error(TTF_GetError());
+		return false;
+	}
+
+	SDL_Color textColor = { fR, fG, fB };   // text color 
+	SDL_Color backColor = { 0xFF, 0, 0xFF };   // text color 
+	int w, h;
+	SDL_Surface *temp;
+	temp = TTF_RenderText_Shaded(font, text, textColor,backColor);
+	return temp;
+	// Always free memory! //
+	SDL_FreeSurface(temp);
+
+	// Close the font. //
+	TTF_CloseFont(font);
+
+
 }

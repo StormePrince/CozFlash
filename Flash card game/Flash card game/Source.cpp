@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "sprite.h"
 #include "controller.h"
+#include "button.h"
 
 //Screen attributes
 const int SCREEN_WIDTH = 640;
@@ -64,23 +65,18 @@ int main(int argc, char* args[])
 	Simplefuncs pen = Simplefuncs(renderer);
 	Controller input = Controller(mainEvent);
 
-	SDL_Texture* testb = NULL;
-	testb = LOAD(renderer, "Data/Character/foo.png");
-
-	Sprite* floozy = new Sprite(&pen,16,16,7,0);
-
-	floozy->load(testb);
-	floozy->setPosx(22);
-	floozy->setPosy(22);
+	Sprite BW = Sprite(&pen, 32, 128, 1, 1);
+	Button FINISH = Button(32,128,BW,"FINISH");
+	FINISH.load("Data/Fonts/zrnic.ttf", "Data/interface/boxBW.png",33,200,12,12);
 
 	while (!quit && mainEvent->type != SDL_QUIT)
 	{
 		SDL_PollEvent(mainEvent);
 		SDL_RenderClear(renderer);
 		input.update();
-		floozy->setPosx(input.getAX());
-		floozy->setPosy(input.getAY());
-		floozy->animateCenter(1,6,64,64);
+		FINISH.changeBox(300,300,32,128);
+		FINISH.image.showCenter();
+
 		SDL_RenderPresent(renderer);
 		SDL_Delay(25);
 	}

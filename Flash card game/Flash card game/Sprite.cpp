@@ -18,6 +18,23 @@ Sprite::Sprite(Simplefuncs* tool, int h, int w, int col, int row)
 	image = NULL;
 }
 
+Sprite::Sprite(Simplefuncs* tool, int h, int w, int col, int row,int x,int y)
+{	
+	height = h;
+	width = w;
+	pen = tool;
+	frame = 0;
+	columns = col;
+	rows = row;
+	posx = 0;
+	posy = 0;
+	centerPosx = x;
+	centerPosy = y;
+	temp = 0;
+	animating = false;
+	image = NULL;
+}
+
 
 Sprite::~Sprite()
 {
@@ -50,6 +67,29 @@ bool Sprite::load(SDL_Texture* spritesheet)
 	return true;
 }
 
+bool Sprite::loadSurface(char* file)
+{
+	if (file == NULL)
+	{
+		throw std::runtime_error(SDL_GetError());
+		return false;
+	}
+	SDL_Surface* temp = IMG_Load(file);
+	image = SDL_CreateTextureFromSurface(pen->getRend(), temp);
+	return true;
+}
+
+bool Sprite::loadSurface(SDL_Surface* spritesheet)
+{
+	if (spritesheet == NULL)
+	{
+		throw std::runtime_error(SDL_GetError());
+		return false;
+	}
+	SDL_Surface* temp = spritesheet;
+	image = SDL_CreateTextureFromSurface(pen->getRend(), temp);
+	return true;
+}
 
 void Sprite::setPosx(int x)
 {
@@ -234,6 +274,11 @@ void Sprite::subY(int y)
 int Sprite::getFrame()
 {
 	return frame;
+}
+
+Simplefuncs* Sprite::getPen()
+{
+	return pen;
 }
 
 int Sprite::getRow()

@@ -7,10 +7,11 @@ public:
 	Sprite();
 	~Sprite();
 	Sprite(Simplefuncs* tool, int h, int w, int col,int row);
-
+	Sprite(Simplefuncs* tool, int h, int w, int col, int row, int x, int y);
 	bool load(char* File);
 	bool load(SDL_Texture* texture);
-
+	bool loadSurface(char* File);
+	bool loadSurface(SDL_Surface* surface);
 	void nextFrame();
 	void test();
 	void setFrame(int f);
@@ -21,6 +22,7 @@ public:
 	void subX(int x);
 	void subY(int y);
 	int getFrame();
+	Simplefuncs* getPen();
 	int getPosx();
 	int getPosy();
 	int getRow();
